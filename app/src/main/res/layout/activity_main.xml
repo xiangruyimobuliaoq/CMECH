@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar_dark_noback"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.nst.cmech.view.NoScrollViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <RadioGroup
+            android:id="@+id/rg_main"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:id="@+id/home"
+                android:checked="true"
+                android:drawableTop="@drawable/selector_tab_homepage"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:textSize="12sp"
+                android:text="@string/text_homePage"
+                android:textColor="@drawable/selector_text_main"/>
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:id="@+id/news"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/selector_tab_news"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:textSize="12sp"
+                android:text="@string/text_news"
+                android:textColor="@drawable/selector_text_main"/>
+
+        </RadioGroup>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

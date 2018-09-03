@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4A2714</color>
+    <color name="colorPrimaryDark">#4A2714</color>
+    <color name="colorAccent">#4A2714</color>
+
+    <color name="background">#F4F4F4</color>
+    <color name="line">#1A4A2714</color>
+
+    <color name="text_0">#030303</color>
+    <color name="text_1">#333333</color>
+    <color name="text_2">#666666</color>
+    <color name="text_3">#999999</color>
+    <color name="text_4">#B2B2B2</color>
+
+    <color name="icon1">#4A2714</color>
+    <color name="icon2">#C1B4A7</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="trans">#0000</color>
+    <color name="black">#000</color>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CMECH</string>
+    <string name="text_homePage">Home page</string>
+    <string name="text_news">News</string>
+    <string name="hint_inputpassword">Password</string>
+    <string name="hint_inputusername">Account</string>
+    <string name="btn_login">Login</string>
+    <string name="text_xmkjxs">Distributor</string>
+    <string name="text_zxdt">News</string>
+    <string name="text_yuyanshezhi">Language</string>
+    <string name="text_changepwd">Change password</string>
+    <string name="text_exit">Logout</string>
+    <string name="text_mypage">About me</string>
+    <string name="hint_oldpwd">Original password</string>
+    <string name="hint_newpwd">New password</string>
+    <string name="hint_newpwd2">Confirm new password</string>
+    <string name="btn_done">Done</string>
+    <string name="text_cancel">Cancel</string>
+    <string name="text_done">Done</string>
+    <string name="text_chinese">Simplified Chinese</string>
+    <string name="text_english">US English</string>
+    <string name="text_nodata">Void</string>
+    <string name="text_nonetwork">Unstable network</string>
+    <string name="btn_refresh">Refresh</string>
+    <string name="text_progress">In process</string>
+    <string name="error_emptyusername">Username or password can’t be empty</string>
+    <string name="error_emptypwd">  Password can’t be empty</string>
+    <string name="text_tips">Notice</string>
+    <string name="text_logout">Logout?</string>
+    <string name="text_logout_ok">OK</string>
+    <string name="text_logout_cancel">Cancel</string>
+    <string name="text_nofile">Void</string>
+    <string name="text_download">Download</string>
+    <string name="text_ondown">Downloading</string>
+    <string name="text_retry">Retry</string>
+    <string name="text_open">Open</string>
+    <string name="text_username">User name</string>
+    <string name="error_pwdnotsame">Two password inconsistency</string>
+</resources>
