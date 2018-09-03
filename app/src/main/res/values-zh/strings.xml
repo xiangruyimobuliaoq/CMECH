@@ -7,7 +7,7 @@
     <string name="btn_login">登陆</string>
     <string name="text_xmkjxs">希美克经销商</string>
     <string name="text_zxdt">最新动态</string>
-    <string name="text_yuyanshezhi">语言设置</string>
+    <string name="text_yuyanshezhi">Language</string>
     <string name="text_changepwd">修改密码</string>
     <string name="text_exit">退出</string>
     <string name="text_mypage">我的</string>
@@ -18,7 +18,7 @@
     <string name="text_cancel">取消</string>
     <string name="text_done">完成</string>
     <string name="text_chinese">简体中文</string>
-    <string name="text_english">英文</string>
+    <string name="text_english">US English</string>
     <string name="text_nodata">暂无数据~</string>
     <string name="text_nonetwork">您的网络不稳定哦,请刷新重试~</string>
     <string name="btn_refresh">刷新</string>

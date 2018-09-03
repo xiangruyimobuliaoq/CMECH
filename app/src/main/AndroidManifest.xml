@@ -66,22 +66,27 @@
             </intent-filter>
         </activity>
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.LoginActivity"
             android:theme="@style/dark"
             />
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.MainActivity"
             android:theme="@style/dark"
             />
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.SettingActivity"
             android:theme="@style/dark"
             />
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.ChangePwdActivity"
             android:theme="@style/dark"
             />
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.LanguageSettingActivity"
             android:theme="@style/dark"
             />
@@ -90,14 +95,17 @@
             android:theme="@style/dark"
             />
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.SearchActivity"
             android:theme="@style/dark"
             />
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.FileDownloadActivity"
             android:theme="@style/dark"
             />
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.NewsActivity"
             android:theme="@style/dark"
             />

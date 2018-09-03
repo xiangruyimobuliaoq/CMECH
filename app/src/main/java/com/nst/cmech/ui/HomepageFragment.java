@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -52,6 +53,8 @@ public class HomepageFragment extends com.nst.cmech.BaseFragment {
     protected UltraViewPager banner;
     @BindView(R.id.modules)
     protected RecyclerView modules;
+    @BindView(R.id.company)
+    protected TextView company;
     private ModuleAdapter moduleAdapter;
 
 
@@ -61,6 +64,7 @@ public class HomepageFragment extends com.nst.cmech.BaseFragment {
         GridLayoutManager layoutManager = new GridLayoutManager(mContext, 4);
         modules.setLayoutManager(layoutManager);
         modules.setAdapter(moduleAdapter);
+        company.setText(ConsUtil.getCompany());
         moduleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -125,8 +129,8 @@ public class HomepageFragment extends com.nst.cmech.BaseFragment {
 //设置indicator样式
         banner.getIndicator()
                 .setOrientation(UltraViewPager.Orientation.HORIZONTAL)
-                .setFocusColor(getResources().getColor(R.color.icon2))
-                .setNormalColor(getResources().getColor(R.color.icon1))
+                .setFocusColor(getResources().getColor(R.color.icon1))
+                .setNormalColor(getResources().getColor(R.color.icon2))
                 .setIndicatorPadding(DpUtil.dip2px(mContext, 10))
                 .setRadius(DpUtil.dip2px(mContext, 5));
 //设置indicator对齐方式
@@ -136,6 +140,7 @@ public class HomepageFragment extends com.nst.cmech.BaseFragment {
         banner.setItemMargin(0, 0, 0, DpUtil.dip2px(mContext, 20));
 //设定页面循环播放
         banner.setInfiniteLoop(true);
+        banner.setOffscreenPageLimit(news.size());
 //设定页面自动切换  间隔2秒
         banner.setAutoScroll(6000);
     }

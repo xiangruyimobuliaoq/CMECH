@@ -72,13 +72,10 @@ public class LanguageSettingActivity extends BaseAppActivity {
                     changeAppLanguage(Locale.ENGLISH);
                     break;
             }
-
         } else if (view.getId() == R.id.chn) {
             chn.setCompoundDrawablesWithIntrinsicBounds(null, null, getDrawable(R.drawable.selected), null);
             eng.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
             current = 1;
-
-
         } else if (view.getId() == R.id.eng) {
             eng.setCompoundDrawablesWithIntrinsicBounds(null, null, getDrawable(R.drawable.selected), null);
             chn.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);

@@ -18,7 +18,7 @@
     <string name="btn_done">Done</string>
     <string name="text_cancel">Cancel</string>
     <string name="text_done">Done</string>
-    <string name="text_chinese">Simplified Chinese</string>
+    <string name="text_chinese">简体中文</string>
     <string name="text_english">US English</string>
     <string name="text_nodata">Void</string>
     <string name="text_nonetwork">Unstable network</string>

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 
 import com.nst.cmech.BaseAppActivity;
@@ -38,7 +39,7 @@ public class MainActivity extends BaseAppActivity implements RadioGroup.OnChecke
     @BindView(R.id.pager)
     protected NoScrollViewPager mFragmentContainer;
     @BindView(R.id.img)
-    protected CircleImageView img;
+    protected ImageView img;
 
     private HomeFragmentAdapter mAdapter;
     private Map<Integer, BaseFragment> mCache = new HashMap<>();

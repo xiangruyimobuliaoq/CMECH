@@ -139,6 +139,7 @@ public class LoginActivity extends BaseActivity {
                 if (resp.status == 1) {
                     SpUtil.putString(ConsUtil.USERINFO, ConsUtil.CLIENTID, resp.data.token);
                     SpUtil.putString(ConsUtil.USERINFO, ConsUtil.USERNAME, username);
+                    SpUtil.putString(ConsUtil.USERINFO, ConsUtil.COMPANY, resp.data.user.company);
                     ConsUtil.setLogin(true);
                     App.initOkgo();
                     forward(MainActivity.class);

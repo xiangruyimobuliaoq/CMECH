@@ -19,12 +19,16 @@ public class ConsUtil {
     private static final String ISLOGIN = "islogin";
     private static final String STYLE = "style";
     public static final String DATACLASS = "dataclass";
+    public static final String COMPANY = "company";
     public static String USERINFO = "userinfo";
     public static String CLIENTID = "clientid";
 
 
     public static String getID() {
         return SpUtil.getString(ConsUtil.USERINFO, ConsUtil.CLIENTID, null);
+    }
+    public static String getCompany() {
+        return SpUtil.getString(ConsUtil.USERINFO, ConsUtil.COMPANY, null);
     }
 
     public static void cleanID() {

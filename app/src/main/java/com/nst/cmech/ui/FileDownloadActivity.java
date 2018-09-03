@@ -231,6 +231,7 @@ public class FileDownloadActivity extends BaseAppActivity {
             ImageView iv = helper.getView(R.id.iv);
             GlideApp.with(FileDownloadActivity.this)
                     .load(Url.file + item.fileImage)
+                    .override(DpUtil.dip2px(FileDownloadActivity.this,60),DpUtil.dip2px(FileDownloadActivity.this,60))
                     .placeholder(R.mipmap.default_map1)
                     .error(R.mipmap.default_map1)
                     .into(iv);

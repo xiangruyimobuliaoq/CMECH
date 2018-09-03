@@ -37,6 +37,6 @@ public class NewsActivity extends BaseAppActivity {
         settings.setDomStorageEnabled(true);//开启DOM缓存，关闭的话H5自身的一些操作是无效的
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         mWebView.setWebViewClient(new WebViewClient());
-        mWebView.loadUrl(Url.newsDetail + "/" + id);
+        mWebView.loadUrl(Url.newsDetail + "?id=" + id);
     }
 }

@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -23,10 +23,8 @@ import com.nst.cmech.R;
 import com.nst.cmech.bean.Module;
 import com.nst.cmech.bean.Resp;
 import com.nst.cmech.util.ConsUtil;
-import com.nst.cmech.util.DpUtil;
 import com.nst.cmech.util.GlideApp;
 import com.nst.cmech.util.SpUtil;
-import com.nst.cmech.util.UIUtil;
 import com.nst.cmech.util.Url;
 import com.nst.cmech.view.Layout;
 
@@ -77,6 +75,7 @@ public class ModuleListActivity extends BaseAppActivity {
         }
         lists.setAdapter(moduleAdapter);
         requestData();
+
         moduleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
