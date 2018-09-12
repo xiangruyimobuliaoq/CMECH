@@ -3,11 +3,13 @@ package com.nst.cmech;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
@@ -17,6 +19,9 @@ import com.nst.cmech.ui.MainActivity;
 import com.nst.cmech.util.ConsUtil;
 import com.nst.cmech.util.DbUtil;
 import com.nst.cmech.util.UIUtil;
+import com.pgyersdk.crash.PgyCrashManager;
+import com.pgyersdk.crash.PgyerCrashObservable;
+import com.pgyersdk.crash.PgyerObserver;
 
 import java.util.Locale;
 
@@ -101,6 +106,14 @@ public class App extends Application {
                 return started == stopped;
             }
         });
+
+        PgyCrashManager.register();
+        PgyerCrashObservable.get().attach(new PgyerObserver() {
+            @Override
+            public void receivedCrash(Thread thread, Throwable throwable) {
+
+            }
+        });
     }
 
     public static void initOkgo() {
@@ -111,5 +124,9 @@ public class App extends Application {
         }
     }
 
-
+    @Override
+    protected void attachBaseContext(Context context) {
+        super.attachBaseContext(context);
+        MultiDex.install(this);
+    }
 }

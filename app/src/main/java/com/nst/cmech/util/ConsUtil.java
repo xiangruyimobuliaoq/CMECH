@@ -20,6 +20,7 @@ public class ConsUtil {
     private static final String STYLE = "style";
     public static final String DATACLASS = "dataclass";
     public static final String COMPANY = "company";
+    public static final String DATAINFO = "datainfo";
     public static String USERINFO = "userinfo";
     public static String CLIENTID = "clientid";
 

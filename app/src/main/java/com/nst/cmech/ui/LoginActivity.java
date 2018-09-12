@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
@@ -48,6 +49,8 @@ public class LoginActivity extends BaseActivity {
     protected EditText password;
     @BindView(R.id.login)
     protected Button login;
+    @BindView(R.id.version)
+    protected TextView version;
     public LocationClient mLocationClient;
     private BDAbstractLocationListener mBdAbstractLocationListener;
     private double mLatitude;
@@ -60,6 +63,8 @@ public class LoginActivity extends BaseActivity {
         LocationClientOption option = new LocationClientOption();
 
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+
+        version.setText(UIUtil.getVersionName());
 //可选，设置定位模式，默认高精度
 //LocationMode.Hight_Accuracy：高精度；
 //LocationMode. Battery_Saving：低功耗；

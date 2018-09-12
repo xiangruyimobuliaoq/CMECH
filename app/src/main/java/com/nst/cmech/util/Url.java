@@ -20,4 +20,5 @@ public class Url {
     public static String fileList = BuildConfig.ROOT_URL + "/app/datainfo";
     public static String newsDetail = BuildConfig.ROOT_URL + "/app/detailePage";
     public static String changepwd = BuildConfig.ROOT_URL + "/app/updatePwd";
+    public static String search = BuildConfig.ROOT_URL + "/app/search/";
 }

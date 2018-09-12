@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -166,9 +167,12 @@ public class HomepageFragment extends com.nst.cmech.BaseFragment {
         @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, final int position) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(container.getContext()).inflate(R.layout.item_banner, null);
+            RelativeLayout linearLayout = (RelativeLayout) LayoutInflater.from(container.getContext()).inflate(R.layout.item_banner, null);
             container.addView(linearLayout);
             RoundedImageView iv = linearLayout.findViewById(R.id.iv);
+            TextView title = linearLayout.findViewById(R.id.title);
+
+            title.setText(news.get(position).title);
             GlideApp.with(HomepageFragment.this)
                     .load(Url.file + news.get(position).picture)
                     .centerCrop()

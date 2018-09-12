@@ -73,7 +73,8 @@ public class ChangePwdActivity extends BaseAppActivity {
                 Resp resp = new Gson().fromJson(response.body(), Resp.class);
                 toast(resp.message);
                 if (resp.status == 1) {
-                    finish();
+                    ConsUtil.setLogin(false);
+                    startAndClearAll(LoginActivity.class);
                 }
             }
 

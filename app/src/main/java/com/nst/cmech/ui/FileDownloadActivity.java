@@ -2,12 +2,8 @@ package com.nst.cmech.ui;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.support.v4.content.FileProvider;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -24,14 +20,12 @@ import com.google.gson.reflect.TypeToken;
 import com.litesuits.orm.db.assit.QueryBuilder;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
-import com.lzy.okgo.db.DownloadManager;
 import com.lzy.okgo.model.Progress;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.GetRequest;
 import com.lzy.okserver.OkDownload;
 import com.lzy.okserver.download.DownloadListener;
 import com.lzy.okserver.download.DownloadTask;
-import com.makeramen.roundedimageview.RoundedImageView;
 import com.nst.cmech.BaseAppActivity;
 import com.nst.cmech.R;
 import com.nst.cmech.bean.FileModule;
@@ -42,20 +36,14 @@ import com.nst.cmech.util.DbUtil;
 import com.nst.cmech.util.DpUtil;
 import com.nst.cmech.util.GlideApp;
 import com.nst.cmech.util.SpUtil;
-import com.nst.cmech.util.UIUtil;
 import com.nst.cmech.util.Url;
 import com.nst.cmech.view.Layout;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
 
 /**
  * 创建者     彭龙
@@ -83,12 +71,12 @@ public class FileDownloadActivity extends BaseAppActivity {
 
     private OkDownload mOkDownload;
     private List<Module.DataClass> mDataInfo;
-
+    private Module.DataClass mSearchInfo;
 
     @Override
     protected void init() {
         mDataClass = (Module.DataClass) getIntent().getSerializableExtra(ConsUtil.DATACLASS);
-        setTitle(SpUtil.getInt("language", "language", 0) == 2 ? mDataClass.ename : mDataClass.name);
+        mSearchInfo = (Module.DataClass) getIntent().getSerializableExtra(ConsUtil.DATAINFO);
         style.setVisibility(View.GONE);
         search.setVisibility(View.GONE);
         mEmptyView = getLayoutInflater().inflate(R.layout.layout_emptyview, null);
@@ -103,7 +91,14 @@ public class FileDownloadActivity extends BaseAppActivity {
         lists.setLayoutManager(mLinearLayoutManager);
 //        }
         lists.setAdapter(moduleAdapter);
-        requestData();
+        if (null != mSearchInfo) {
+            mDataInfo = new ArrayList<>();
+            mDataInfo.add(mSearchInfo);
+            moduleAdapter.replaceData(mDataInfo);
+        } else {
+            setTitle(SpUtil.getInt("language", "language", 0) == 2 ? mDataClass.ename : mDataClass.name);
+            requestData();
+        }
         mOkDownload = OkDownload.getInstance();
         mOkDownload.setFolder(Environment.getExternalStorageDirectory().getPath() + "/CMECH/");
         mOkDownload.getThreadPool().setCorePoolSize(3);
@@ -175,12 +170,9 @@ public class FileDownloadActivity extends BaseAppActivity {
             } else {
                 ArrayList<Module.DataClass> list = DbUtil.single().query(new QueryBuilder<>(Module.DataClass.class)
                         .whereEquals("id", item.id));
-                Log.e("123", "11111");
                 if (list.size() > 0) {
                     //数据库有记录
-                    Log.e("123", "22222222");
                     final Module.DataClass dataClass = list.get(0);
-                    Log.e("123", new Gson().toJson(dataClass));
                     if (dataClass.filepath == null || dataClass.version < item.version) {
                         //数据库没有文件路径或者本地版本号低于服务器
                         btn.setText(R.string.text_download);
@@ -193,7 +185,6 @@ public class FileDownloadActivity extends BaseAppActivity {
                         });
                     } else {
                         File file = new File(dataClass.filepath);
-                        Log.e("123", file.exists() + "");
                         if (file.exists()) {
                             btn.setText(R.string.text_open);
                             progress.setText(dataClass.filepath);
@@ -231,7 +222,7 @@ public class FileDownloadActivity extends BaseAppActivity {
             ImageView iv = helper.getView(R.id.iv);
             GlideApp.with(FileDownloadActivity.this)
                     .load(Url.file + item.fileImage)
-                    .override(DpUtil.dip2px(FileDownloadActivity.this,60),DpUtil.dip2px(FileDownloadActivity.this,60))
+                    .override(DpUtil.dip2px(FileDownloadActivity.this, 60), DpUtil.dip2px(FileDownloadActivity.this, 60))
                     .placeholder(R.mipmap.default_map1)
                     .error(R.mipmap.default_map1)
                     .into(iv);
@@ -239,7 +230,7 @@ public class FileDownloadActivity extends BaseAppActivity {
     }
 
     private void download(final int id, String file, final TextView btn, final TextView tv, final Module.DataClass item) {
-        GetRequest<File> request = new GetRequest<>(Url.down + file);
+        GetRequest<File> request = new GetRequest<>(Url.down + file + "/" + id);
         DownloadTask task = mOkDownload.request(String.valueOf(id), request).save().register(new DownloadListener(id) {
             @Override
             public void onStart(Progress progress) {

@@ -67,6 +67,8 @@ public class Module {
         public String fileImage;
         @Ignore
         public int state;
+        public String pathName;
+        public String pathEname;
 
         @Override
         public int getItemType() {
